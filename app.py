@@ -301,9 +301,9 @@ elif selectbox_a == 'Regression for Team':
     st.write(y_test, y_pred)
     rmse = format(np.sqrt(mean_squared_error(y_test, y_pred)), '.3f')
     st.write("\nRMSE: ", rmse)
-    viz= dtreeviz(regressor, X, y, target_name="Classes",
-    feature_names=c, class_names=d)
-    st.graphviz_chart(viz)
+    plt.rcParams[“font.family”] = “Arial”
+    viz= dtreeviz(regressor, X, y, target_name="Classes", feature_names=c, class_names=d)
+    st.image(viz._repr_svg_(), use_column_width=True)
     a = [1, 0]
     selectbox_a = st.selectbox(
         "Enter the venue home/away (1/0):",
